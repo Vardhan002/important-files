@@ -1,0 +1,126 @@
+Here’s a comprehensive diet plan to help you consume 150 grams of protein, incorporating chicken, eggs, nuts, whole grains, and vegetables: 
+ 
+### Meal Plan 
+ 
+#### Breakfast 
+- **3 large eggs**: ~18 grams of protein 
+- **1 slice of whole-grain toast**: ~4 grams of protein 
+- **2 tablespoons of peanut butter**: ~8 grams of protein 
+- **1/2 banana**: ~1 gram of protein 
+ 
+**Total for Breakfast: 31 grams of protein** 
+ 
+#### Mid-Morning Snack 
+- **30 grams of mixed nuts (almonds, walnuts, cashews)**: ~6 grams of protein 
+ 
+**Total for Snack: 6 grams of protein** 
+ 
+#### Lunch 
+- **200 grams of grilled chicken breast**: ~46 grams of protein 
+- **1 cup of quinoa (cooked)**: ~8 grams of protein 
+- **1 cup of mixed vegetables (broccoli, carrots, bell peppers)**: ~4 grams of protein 
+ 
+**Total for Lunch: 58 grams of protein** 
+ 
+#### Afternoon Snack 
+- **1 cup of Greek yogurt**: ~20 grams of protein 
+- **1 tablespoon of honey**: ~0 grams of protein (optional for sweetness) 
+ 
+**Total for Snack: 20 grams of protein** 
+ 
+#### Dinner 
+- **150 grams of baked chicken thighs**: ~30 grams of protein 
+- **1 cup of brown rice (cooked)**: ~5 grams of protein 
+- **1 cup of steamed spinach**: ~5 grams of protein 
+ 
+**Total for Dinner: 40 grams of protein** 
+ 
+### Daily Totals 
+- **Breakfast**: 31g 
+- **Mid-Morning Snack**: 6g 
+- **Lunch**: 58g 
+- **Afternoon Snack**: 20g 
+- **Dinner**: 40g 
+ 
+**Overall Total: 155 grams of protein** 
+ 
+### Additional Tips 
+- **Hydration**: Drink plenty of water throughout the day. 
+- **Variety**: Feel free to swap different vegetables or grains to keep meals interesting. 
+- **Meal Prep**: Preparing meals in advance can help you stick to your protein goals. 
+- **Snacking**: Choose healthy snacks that are high in protein to reach your daily goal. 
+ 
+Adjust the portion sizes and ingredients based on your personal preferences and dietary needs!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+To create a diet plan that includes 150 grams of protein with chicken, eggs, and vegetables, here’s a sample meal plan for a day: 
+ 
+### Breakfast 
+- **3 large eggs**: Approximately 18 grams of protein 
+- **1 slice of whole-grain toast**: Approximately 4 grams of protein 
+- **1/2 avocado**: Approximately 2 grams of protein 
+ 
+**Total for Breakfast: 24 grams of protein** 
+ 
+### Snack 
+- **Greek yogurt (200g)**: Approximately 20 grams of protein 
+ 
+**Total for Snack: 20 grams of protein** 
+ 
+### Lunch 
+- **Grilled chicken breast (200g)**: Approximately 46 grams of protein 
+- **Mixed salad (spinach, kale, tomatoes, cucumbers)**: Approximately 5 grams of protein 
+ 
+**Total for Lunch: 51 grams of protein** 
+ 
+### Snack 
+- **Protein shake (1 scoop of protein powder)**: Approximately 25 grams of protein 
+ 
+**Total for Snack: 25 grams of protein** 
+ 
+### Dinner 
+- **Grilled chicken thigh (150g)**: Approximately 30 grams of protein 
+- **Steamed broccoli (1 cup)**: Approximately 4 grams of protein 
+- **Quinoa (1/2 cup cooked)**: Approximately 4 grams of protein 
+ 
+**Total for Dinner: 38 grams of protein** 
+ 
+### Daily Total 
+- **Breakfast**: 24g 
+- **Snack 1**: 20g 
+- **Lunch**: 51g 
+- **Snack 2**: 25g 
+- **Dinner**: 38g 
+ 
+**Overall Total: 158 grams of protein** 
+ 
+### Tips: 
+- Adjust portion sizes based on your calorie needs. 
+- Incorporate a variety of vegetables for added nutrients. 
+- Stay hydrated and consider your overall dietary balance. 
+
+
+
+
+// 👉 numaric validator
+// export const numericValidator = value => {
+//   if (isEmpty(value)) {
+//     return true; // Allow empty value, or change to return 'This field is required' if needed
+//   }
+//   return /^[0-9]*$/.test(String(value)) || 'This field may only contain numeric characters';
+// };
+
+

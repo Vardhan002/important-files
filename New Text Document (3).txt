@@ -1,0 +1,526 @@
+05/07/2024
+
+display:
+block,inline,inline-block,none,flex,grid.
+
+any block level can convert to inline and can be side by side
+
+inline is like same line of output display 
+
+listout the block and inline tags
+
+padding -padding - top,right,left,bottom.
+
+
+584//586
+
+
+08/07/2024
+
+box-modal
+
+Selectors - 10; 
+
+-its style rule, 
+-nothing but group of properties, 
+-used to define style for elements/tags(using selector we can customize existing styles),
+
+selector{
+	property : value;
+	................;
+}
+
+types:
+universal, "*"
+tag, "tag name"
+id, "#"
+class, "." 
+child, "space"
+direct Child, ">"
+attribute, "[]"
+group pseudo, ","
+classes, ":"
+elements, "::"
+
+
+
+
+
+
+
+
+
+
+after selecting the dropdown selecting offline make revalent changes to get enable of a input box to select centers
+
+
+
+
+
+dropdown for centers when selected mode field offline 
+
+
+
+
+
+
+
+
+
+vue
+<template>
+  <VCol cols="12" md="6">
+    <AppAutocomplete
+      label="Product Type"
+      v-model="moduleData.producttype_id"
+      :items="producttype"
+      item-title="value"
+      item-value="id"
+      eager
+      :rules="[requiredValidator]"
+      :cRequired="true"
+      placeholder="None"
+      :error-messages="errors.producttype_id"
+      @change="openPopup"
+    />
+    <VDialog v-model="dialog" max-width="600px">
+      <template v-slot:activator="{ on, attrs }">
+        <VBtn v-bind="attrs" v-on="on" color="primary">Open Popup</VBtn>
+      </template>
+      <VCard>
+        <VCardTitle>
+          <span class="headline">Product Type Details</span>
+        </VCardTitle>
+        <VCardText>
+          <p>{{ selectedProductTypeDetails }}</p>
+        </VCardText>
+        <VCardActions>
+          <VBtn color="green darken-1" text @click="dialog = false">Close</VBtn>
+        </VCardActions>
+      </VCard>
+    </VDialog>
+  </VCol>
+</template>
+
+<script>
+export default {
+  data() {
+    return {
+      dialog: false,
+      moduleData: {
+        producttype_id: null,
+      },
+      producttype: [
+        { id: 1, value: 'Type A' },
+        { id: 2, value: 'Type B' },
+        { id: 3, value: 'Type C' },
+      ],
+      errors: {
+        producttype_id: '',
+      },
+      selectedProductTypeDetails: '',
+    };
+  },
+  methods: {
+    openPopup(value) {
+      // Find the selected product type details based on the selected id
+      const selectedProduct = this.producttype.find(item => item.id === value);
+      if (selectedProduct) {
+        this.selectedProductTypeDetails = `You selected: ${selectedProduct.value}`;
+        this.dialog = true; // Open the dialog
+      }
+    },
+  },
+};
+</script>
+
+<style scoped>
+/* Add any necessary styles here */
+</style>
+
+
+
+
+
+
+
+
+
+<-------------------::OTHER RECEIPTS::------------------------>
+
+<VCol cols="12" md="5">
+                <AppAutocomplete
+                  id="receipt_type_id"
+                  v-model="moduleData.receipt_type_id"
+                  :items="receipttypedropdown"
+                  :error-messages="errors.receipt_type_id"
+                  item-title="name"
+                  item-value="short_code"
+                  placeholder="Select Receipt Type"
+                  persistent-placeholder
+                  :rules="[requiredValidator]"
+                  :clearable="true"
+                  label="Receipt Type"
+                  eager
+                  cRequired
+                />
+              </VCol>
+
+              <VCol v-if="isApplication" cols="12" md="5">
+                <AppAutocomplete
+                  id="admission_type_id"
+                  v-model="moduleData.admission_type_id"
+                  :items="admissiontypedropdown"
+                  item-title="name"
+                  item-value="short_code"
+                  placeholder="Enter Admission Type"
+                  :rules="[requiredValidator, alphanumaricValidator]"
+                  :clearable="true"
+                  :error-messages="errors.orientation_id"
+                  label="Admission Type"
+                  cRequired
+                />
+              </VCol>
+
+              <VCol
+                v-if="
+                  !isApplication ||
+                  isPocketMoney ||
+                  isDeposite ||
+                  isAdvanceFee ||
+                  isTabletFee
+                "
+                cols="12"
+                md="5"
+              >
+                <AppTextField
+                  id="student_details_id"
+                  v-model="moduleData.student_type_id"
+                  :items="getstudentdetails"
+                  item-title="name"
+                  item-value=""
+                  placeholder="Enter Admission Number"
+                  :rules="[requiredValidator, admissionNumberValidator]"
+                  :clearable="true"
+                  :error-messages="errors.orientation_id"
+                  label="Admission No"
+                  cRequired
+                />
+              </VCol>
+
+              <VCol v-if="isApplication" cols="12" md="5">
+                <AppTextField
+                  placeholder="Enter application no"
+                  :rules="[requiredValidator, alphanumaricValidator]"
+                  :clearable="true"
+                  :error-messages="errors.orientation_id"
+                  label="Application No"
+                  cRequired
+                />
+              </VCol>
+
+              <VCol v-if="isPro" cols="12" md="5">
+                <AppTextField
+                  placeholder="Enter Pro Receipt No"
+                  :rules="[requiredValidator, alphanumaricValidator]"
+                  :clearable="true"
+                  :error-messages="errors.orientation_id"
+                  label="Pro Receipt No"
+                  cRequired
+                />
+              </VCol>
+
+              <VCol
+                v-if="
+                  isApplication || isPocketMoney || isDeposite || isTabletFee
+                "
+                cols="12"
+                md="5"
+              >
+                <AppAutocomplete
+                  id="class_id"
+                  v-model="moduleData.class_id"
+                  :items="classdropdown"
+                  eager
+                  item-title="name"
+                  item-value="id"
+                  placeholder="Select Class"
+                  :rules="[requiredValidator]"
+                  :clearable="true"
+                  :error-messages="errors.class_id"
+                  label="Class"
+                  cRequired
+                />
+              </VCol>
+
+              <VCol v-if="isAdvanceFee" cols="12" md="5">
+                <AppTextField label="Class" value="None" cRequired />
+              </VCol>
+
+              <VCol
+                v-if="
+                  isApplication ||
+                  isPocketMoney ||
+                  isDeposite ||
+                  isAdvanceFee ||
+                  isTabletFee
+                "
+                cols="12"
+                md="5"
+              >
+                <AppTextField
+                  v-model="moduleData.academic_year"
+                  :rules="[requiredValidator, alphaValidator]"
+                  placeholder="Enter First Name"
+                  label="First Name"
+                  cRequired
+                  readonly
+                />
+              </VCol>
+
+              <VCol
+                v-if="
+                  isApplication ||
+                  isPocketMoney ||
+                  isDeposite ||
+                  isAdvanceFee ||
+                  isTabletFee
+                "
+                cols="12"
+                md="5"
+              >
+                <AppTextField
+                  placeholder="Enter Last Name"
+                  :rules="[requiredValidator, alphaValidator]"
+                  :clearable="true"
+                  label="Last Name"
+                  cRequired
+                  readonly
+                />
+              </VCol>
+
+              <VCol
+                v-if="isAdvanceFee"
+                cols="12"
+                md="5"
+                class="d-flex align-items-center"
+              >
+                <span class="me-3">Is Conversion</span>
+                <input
+                  type="checkbox"
+                  v-model="isConversionActive"
+                  style="transform: scale(1.5)"
+                  aria-label="Conversion Checkbox"
+                />
+              </VCol>
+
+              <VCol v-if="isConversionActive" cols="12" md="5">
+                <AppTextField
+                  placeholder="None"
+                  persistent-placeholder
+                  label="Conversion Type"
+                  readonly
+                />
+              </VCol>
+
+              <VCol
+                v-if="
+                  isApplication || isPocketMoney || isDeposite || isTabletFee
+                "
+                cols="12"
+                md="5"
+              >
+                <AppAutocomplete
+                  id="payment_id"
+                  v-model="moduleData.payment_id"
+                  :items="paymentdropdown"
+                  eager
+                  item-title="name"
+                  item-value="short_code"
+                  placeholder="Select Payment Mode"
+                  :rules="[requiredValidator]"
+                  :clearable="true"
+                  :error-messages="errors.payment_id"
+                  label="Payment Mode"
+                  cRequired
+                />
+              </VCol>
+
+              <VCol v-if="isChequeOrDD" cols="12" md="5">
+                <AppTextField
+                  item-title="name"
+                  item-value="short_code"
+                  placeholder="Enter Cheque/DD No"
+                  :rules="[requiredValidator, alphanumaricValidator]"
+                  :clearable="true"
+                  :error-messages="errors.payment_id"
+                  label="Cheque/DD No"
+                  cRequired
+                />
+              </VCol>
+
+              <VCol v-if="isCreditOrDebitCard" cols="12" md="5">
+                <AppTextField
+                  item-title="name"
+                  item-value="short_code"
+                  placeholder="Enter Transaction ID"
+                  :rules="[requiredValidator, alphanumaricValidator]"
+                  :clearable="true"
+                  :error-messages="errors.payment_id"
+                  label="Transaction ID"
+                  cRequired
+                />
+              </VCol>
+
+              <VCol
+                v-if="
+                  isApplication ||
+                  isPocketMoney ||
+                  isDeposite ||
+                  isAdvanceFee ||
+                  isAdvanceFee ||
+                  isTabletFee
+                "
+                cols="12"
+                md="5"
+              >
+                <AppTextField
+                  item-title="name"
+                  item-value="short_code"
+                  placeholder="Enter Receipt No"
+                  :rules="[requiredValidator, alphanumaricValidator]"
+                  :clearable="true"
+                  :error-messages="errors.orientation_id"
+                  label="Receipt No"
+                  cRequired
+                />
+              </VCol>
+
+              <VCol
+                v-if="
+                  isApplication ||
+                  isPocketMoney ||
+                  isDeposite ||
+                  isAdvanceFee ||
+                  isTabletFee
+                "
+                cols="12"
+                md="5"
+              >
+                <AppTextField
+                  item-title="name"
+                  item-value="short_code"
+                  placeholder="Enter Paid Amount"
+                  :rules="[requiredValidator, integerValidator]"
+                  :clearable="true"
+                  :error-messages="errors.orientation_id"
+                  label="Amount Paid"
+                  cRequired
+                />
+              </VCol>
+
+              <VCol
+                v-if="
+                  isApplication || isPocketMoney || isDeposite || isTabletFee
+                "
+                cols="12"
+                md="5"
+              >
+                <AppTextField
+                  placeholder="Enter Parent/Guardian Name"
+                  :rules="[requiredValidator, alphaValidator]"
+                  :clearable="true"
+                  label="Parent/Guardian Name"
+                  cRequired
+                />
+              </VCol>
+
+              <VCol
+                v-if="
+                  isPocketMoney ||
+                  isDeposite ||
+                  isAdvanceFee ||
+                  isTabletFee ||
+                  (!isConversionActive && !isApplication)
+                "
+                cols="12"
+                md="5"
+              >
+                <AppTextarea
+                  item-title="name"
+                  item-value="short_code"
+                  placeholder="Enter Description"
+                  :rules="[requiredValidator, alphanumaricValidator]"
+                  :clearable="true"
+                  :error-messages="errors.orientation_id"
+                  label="Description"
+                  cRequired
+                />
+              </VCol>
+
+              <VCol v-if="isApplication" cols="12" md="5">
+                <AppTextField
+                  placeholder="Enter Parent/Guardian Mobile Number"
+                  :rules="[phonenumberValidator]"
+                  :clearable="true"
+                  label="Parent/Guardian Mobile Number"
+                />
+              </VCol>
+
+              <VCol v-if="isApplication" cols="12" md="5">
+                <AppTextarea
+                  item-title="name"
+                  item-value="short_code"
+                  placeholder="Enter Address"
+                  :rules="[requiredValidator]"
+                  :clearable="true"
+                  :error-messages="errors.orientation_id"
+                  label="Address"
+                  cRequired
+                />
+              </VCol>
+
+              <VCol
+                v-if="
+                  isApplication ||
+                  isPocketMoney ||
+                  isDeposite ||
+                  isAdvanceFee ||
+                  isTabletFee
+                "
+                cols="12"
+                md="5"
+              >
+                <AppTextField
+                  value="Approved"
+                  persistent-placeholder
+                  label="Receipt Status"
+                  cRequired
+                  readonly
+                />
+              </VCol>
+
+              <VCol cols="12" md="5">
+                <AppTextField
+                  placeholder="Enter Refund Amount"
+                  :rules="[integerValidator]"
+                  :clearable="true"
+                  :error-messages="errors.class_id"
+                  label="Refund Amount"
+                />
+              </VCol>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
